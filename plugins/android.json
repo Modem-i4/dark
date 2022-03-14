@@ -1,0 +1,35 @@
+{
+  "prepare_queue": {
+    "installed": [],
+    "uninstalled": []
+  },
+  "config_munge": {
+    "files": {}
+  },
+  "installed_plugins": {
+    "cordova-plugin-device": {
+      "PACKAGE_NAME": "com.modemi4.safesteiermark"
+    },
+    "cordova-plugin-file": {
+      "PACKAGE_NAME": "com.modemi4.safesteiermark"
+    },
+    "cordova-plugin-geolocation": {
+      "GPS_REQUIRED": "true",
+      "PACKAGE_NAME": "com.modemi4.safesteiermark"
+    },
+    "cordova-plugin-inappbrowser": {
+      "PACKAGE_NAME": "com.modemi4.safesteiermark"
+    },
+    "cordova-plugin-splashscreen": {
+      "PACKAGE_NAME": "com.modemi4.safesteiermark"
+    },
+    "cordova-plugin-whitelist": {
+      "PACKAGE_NAME": "com.modemi4.safesteiermark"
+    },
+    "cordova-plugin-camera": {
+      "ANDROID_SUPPORT_V4_VERSION": "27.+",
+      "PACKAGE_NAME": "com.modemi4.safesteiermark"
+    }
+  },
+  "dependent_plugins": {}
+}

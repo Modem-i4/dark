@@ -1,0 +1,17 @@
+{
+  "background_color": "#FFF",
+  "display": "standalone",
+  "name": "Sichere Steiermark",
+  "short_name": "Sichere Steiermark",
+  "version": "com.modemi4.safesteiermark",
+  "description": "Die Steiermark sicherer machen – Angsträume entschärfen!",
+  "author": "Vasyl Chukhilevych",
+  "icons": [
+    {
+      "src": "www/res/icon.png",
+      "type": "image/png",
+      "sizes": "undefinedxundefined"
+    }
+  ],
+  "start_url": "index.html"
+}

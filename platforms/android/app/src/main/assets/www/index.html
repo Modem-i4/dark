@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="msapplication-tap-highlight" content="no" />
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, target-densitydpi=device-dpi" />
+	<!--<meta http-equiv="Content-Security-Policy" content="default-src *; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data:">-->
+	<title>Sichere Steiermark</title>
+	<link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css" />
+	<link rel="stylesheet" href="css/style.css" />
+	<script src="js/jquery-1.11.1.min.js"></script>
+	<script src="js/jquery.mobile-1.4.5.min.js"></script>
+</head>
+
+<body>
+	<div data-role="page" id="home-page">
+		<div data-role="header" class="default-header">
+			<a data-role="none"></a>
+			<span class="ui-title">Sichere Steiermark</span>
+		</div>
+
+		<div data-role="main" class="ui-content">
+			<div id="last-photos"><div class="center-text loading-spinner"><img src="img/load.gif"></div></div>
+			<button id="get-album-photo" data-icon="add">Foto hochladen</button>
+			<button id="get-camera-photo" data-icon="camera">Foto aufnehmen</button>
+			<div class="modal-container hidden-animated">
+				<div class="modal">
+					<h3 class="center-text"></h1>
+					<button class="close">Ok</button>
+				</div>
+			</div>
+		</div>
+
+		<div data-role="footer" class="default-footer">
+			<h1 id="about-btn"><a data-role="none" href="#about">Kampagne</a></h1>
+			<div id="home-btn-container">
+				<a href="#home-page"><div id="home-btn" class="active1"></div></a>
+			</div>
+			<h1 id="contacts-btn"><a data-role="none" href="#contacts">Kontakt</a></h1>
+		</div>
+	</div>	
+
+	<div data-role="page" id="geolocation">
+		<div data-role="header" class="default-header">
+			<a href="#home-page" data-role="none"><img class="ui-btn-left" src="img/back.svg"></img></a>
+			<span class="ui-title">Sichere Steiermark</span>
+			<a data-role="none" class="ui-btn-right"></a>
+		</div>
+
+		<div data-role="main" class="ui-content">
+			<div id="map-container">
+				<button id="accept-geo" class="ui-btn ui-shadow ui-corner-all">Bestätigen</button>
+				<img src="img/marker.png" id="center-marker"></img>
+				<div id="map"></div>
+			</div>
+		</div>
+
+		<div data-role="footer" class="default-footer">
+			<h1 id="about-btn"><a data-role="none" href="#about">Kampagne</a></h1>
+			<div id="home-btn-container">
+				<a href="#home-page"><div id="home-btn"></div></a>
+			</div>
+			<h1 id="contacts-btn"><a data-role="none" href="#contacts">Kontakt</a></h1>
+		</div>
+	</div>
+	<div data-role="page" id="contactform">
+	
+		<div data-role="header" class="default-header">
+			<a href="#geolocation" data-role="none"><img class="ui-btn-left" src="img/back.svg"></img></a>
+			<span class="ui-title">Sichere Steiermark</span>
+			<a data-role="none" class="ui-btn-right"></a>
+		</div>
+
+		<div data-role="main" class="ui-content">
+			<div class="loading-bg"><div class="center-text loading-spinner"><img src="img/load.gif"></div></div>
+			<div class="modal-container hidden-animated">
+				<div class="modal">
+					<h3 class="center-text">Fehler beim Upload!<br>Überprüfe deine Internetverbindung</h1>
+					<button class="close">Ok</button>
+				</div>
+			</div>
+			<form id="contact-info">
+				<h4>Beschreibe das Problem oder hinterlasse uns eine Nachricht</h4>
+				<textarea name="comment" class="comment" autocomplete="new-password"></textarea>
+				<h4>Hinterlasse uns für Rückfragen deine Kontaktdaten</h4>
+				<span class="name-error error-label"></span>
+				<input type="text" name="username" class="username" placeholder="Dein Name" autocomplete="new-password">
+				<h4>Wie können wir dich erreichen?</h4>
+				<span class="contact-error error-label"></span>
+				<input type="text" name="phone" class="phone" placeholder="Telefonnummer" pattern="^[0-9 -\/\+]{8,16}$" autocomplete="new-password">
+				<input type="text" name="email" class="email" placeholder="E-mail Adresse" pattern='^[A-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$' autocomplete="new-password">
+				<h4>Weitere Kontaktmöglichkeiten</h4>
+				<input type="text" name="instagram" class="instagram" placeholder="Instagram" autocomplete="new-password">
+				<input type="text" name="telegram" class="telegram" placeholder="Telegram" autocomplete="new-password">
+				<input type="hidden" name="image">
+				<input type="hidden" name="lon">
+				<input type="hidden" name="lat">
+				<input type="hidden" name="uuid">
+				<input type="submit" value="Absenden">
+			</form>
+		</div>
+
+		<div data-role="footer" class="default-footer">
+			<h1 id="about-btn"><a data-role="none" href="#about">Kampagne</a></h1>
+			<div id="home-btn-container">
+				<a href="#"><div id="home-btn"></div></a>
+			</div>
+			<h1 id="contacts-btn"><a data-role="none" href="#contacts">Kontakt</a></h1>
+		</div>
+	</div>
+	<div data-role="page" id="about">
+		<div data-role="header" class="default-header">
+			<a href="#home-page" data-role="none"><img class="ui-btn-left" src="img/back.svg"></img></a>
+			<span class="ui-title">Sichere Steiermark</span>
+			<a data-role="none" class="ui-btn-right"></a>
+		</div>
+
+		<div data-role="main" class="ui-content">
+			<div class="center-text">
+				<img src="img/sujets/sujet1.jpg" style="width: 100%">
+				<h3><u>Die Steiermark sicherer machen – Angsträume entschärfen!</u></h3>
+			</div>
+			<div class="fill-images">
+				<p>Jeder kennt diese Situation: Auf dem Nachhauseweg von der Arbeit oder beim Spaziergang mit dem Hund muss man durch diese eine Unterführung oder diesen bestimmten Park, der einem schon immer Angst eingejagt hat. Besonders in den kalten Monaten, wenn die Sonne früh untergeht, jagen uns schlecht ausgeleuchtete Plätze oder dunkle Gassen oftmals einen Schauer über den Rücken. Eine Studie zum Sicherheitsempfinden von Frauen in Graz aus dem Jahr 2017 stellte fest, dass ausnahmslos alle befragten Frauen sich eine bessere Beleuchtung, manche sogar eine Überwachung an Brennpunktstellen der Landeshauptstadt wie Parks, Unterführungen oder uneinsichtigen Stellen wünschen. Natürlich handelt es sich dabei keineswegs um ein Problem, welches nur Graz betrifft. Vielmehr kennt jeder diesen Angstraum, der sich oftmals in seinem direkten Lebensumfeld befindet.</p>
+				<p>Die FPÖ Steiermark hat es sich deshalb zum Ziel gesetzt, diesen Angsträumen den Kampf anzusagen und entschieden gegen dunkle Parks und angsteinflößende Unterführungen vorzugehen. Folgende Maßnahmen zur Erhöhung des subjektiven Sicherheitsgefühls werden von uns eingefordert:</p>
+				<img src="img/sujets/sujet2.jpg">
+				<h4>Mehr Beleuchtungsmaßnahmen</h4>
+				<p>Licht vermittelt uns Sicherheit. Das enge Gässchen, durch das wir tagsüber ohne Probleme spazieren, kann einem nachts den Angstschweiß auf die Stirn steigen lassen. Als essenzieller Schritt zur Anhebung des Sicherheitsgefühls ist deshalb eine ordentliche Ausleuchtung von öffentlichen Plätzen, Parks und Unterführungen unabdingbar. Darüber hinaus wird mit einer guten Beleuchtung jeder Platz für eventuelle Störenfriede des gesellschaftlichen Lebens uninteressant – es liegt also auch im Interesse der jeweiligen Gemeinde, für ausreichende Beleuchtungsmaßnahmen zu sorgen.</p>
+				<img src="img/sujets/sujet3.jpg">
+				<h4>Soziale Brennpunkte überwachen</h4>
+				<p>In jeder Stadt und zahleichen Gemeinden gibt es Plätze, die seit jeher als Anziehungs- oder Treffpunkt in den Nachtstunden bekannt sind. Im Zusammenspiel mit nicht ausreichenden Kontrollen kann es dort oftmals zu unangenehmen Szenen, Sachbeschädigungen oder noch viel schlimmeren Delikten kommen. Um diesen Hotspots den Kampf anzusagen, fordern wir stärkere Überwachung von sozialen Brennpunkten und Drogenhotspots. Gemeinden sollen zum Schutz ihrer Bürgern von der Möglichkeit Gebrauch machen, Alkoholverbotszonen auszusprechen und verstärkt auf persönliche, aber auch auf technische Überwachungsmöglichkeiten setzen.</p>
+				<img src="img/sujets/sujet4.jpg">
+				<h4>Heimwegtelefon ausbauen</h4>
+				<p>Auf parlamentarischer Ebene soll die Ausweitung des in Graz durchaus erfolgreichen Heimwegtelefons auf die gesamte Steiermark vorangetrieben werden. Dieses wurde vom ehemaligen Grazer Bürgermeister-Stellvertreter Mario Eustacchio bereits 2016 ins Leben gerufen und fand inzwischen Nachfolger in ganz Österreich. So gibt es inzwischen Ableger des Heimwegtelefons in Wiener Neustadt, Amstetten, Linz, Villach und Leonding. Damit erreicht die Hotline bereits rund 700.000 Personen. Aus der ganzen Steiermark soll es möglich sein, bei Unbehagen durch die Mitarbeiter des Heimwegtelefons sicher nach Hause begleitet zu werden und die Gewissheit zu haben, dass im Notfall durch dieses Service sofort Hilfe geholt wird.</p>
+				<div class="center-text">
+					<span>Solltest du den Service des Heimwegtelefons benötigen, erreichst du dieses freitags, samstags und vor Feiertagen von 22 bis 3 Uhr früh unter</span>
+					<h3><a href="javascript: window.open('tel:03168722277', '_system', 'location=yes');">0316 872-2277</a></h3>
+				</div>
+			</div>
+		</div>
+
+		<div data-role="footer" class="default-footer">
+			<h1 id="about-btn" class="active-link"><a data-role="none" href="#about">Kampagne</a></h1>
+			<div id="home-btn-container">
+				<a href="#home-page"><div id="home-btn" class="active1"></div></a>
+			</div>
+			<h1 id="contacts-btn"><a data-role="none" href="#contacts">Kontakt</a></h1>
+		</div>
+	</div>
+	<div data-role="page" id="contacts">
+		<div data-role="header" class="default-header">
+			<a href="#home-page" data-role="none"><img class="ui-btn-left" src="img/back.svg"></img></a>
+			<span class="ui-title">Sichere Steiermark</span>
+			<a data-role="none" class="ui-btn-right"></a>
+		</div>
+
+		<div data-role="main" class="ui-content">
+			<div class="center-text">
+				<img src="img/FPO.svg">
+				<h3>Kontakt:</h3>
+			</div>
+			<p>Hast du Fragen zur App oder ein anderes Anliegen betreffend Sicherheit?</p>
+			<p>Die FPÖ Steiermark hat es sich zum Ziel gesetzt Angsträumen den Kampf anzusagen und entschieden gegen dunkle Parks und angsteinflößende Unterführungen vorzugehen.</p>
+
+			<p>Wir nehmen jede Meldung über unsere APP, Internetseite oder per Telefon sehr ernst und bedanken uns für die Mithilfe, die Steiermark sicherer zu machen!</p>
+
+			<p>Solltest du Fragen haben, kannst du dich gerne an uns wenden:</p>
+			
+			
+			<div class="contacts">
+			<h4><div class="home-phone">Heimwegtelefon: <a href="javascript: window.open('tel:03168722277', '_system', 'location=yes');">0316 872-2277</a> (22 - 3 Uhr)</div></h4>
+				<div class="email"><a href="javascript: window.open('mailto:info@sicherheit-steiermark.at', '_system');">info@sicherheit-steiermark.at</a></div>
+				<div class="phone"><a href="javascript: window.open('tel:+496170961709', '_system', 'location=yes');">+43 316 375 300</a></div>
+				<div class="facebook"><a href="javascript: window.open('https://facebook.com/mkunasek/', '_system');">facebook.com/mkunasek</a></div>
+				<div class="instagram"><a href="javascript: window.open('https://instagram.com/mariokunasek/', '_system');">@mariokunasek</a></div>
+				<div class="telegram"><a href="javascript: window.open('https://t.me/mkunasek/', '_system');">@mkunasek</a></div>
+			</div>
+		</div>
+
+		<div data-role="footer" class="default-footer">
+			<h1 id="about-btn"><a data-role="none" href="#about">Kampagne</a></h1>
+			<div id="home-btn-container">
+				<a href="#home-page"><div id="home-btn"></div></a>
+			</div>
+			<h1 id="contacts-btn" class="active-link"><a data-role="none" href="#contacts">Kontakt</a></h1>
+		</div>
+	</div>
+	<div data-role="page" id="details">
+		<div data-role="header" class="default-header">
+			<a href="#home-page" data-role="none"><img class="ui-btn-left" src="img/back.svg"></img></a>
+			<span class="ui-title">Sichere Steiermark</span>
+			<a data-role="none" class="ui-btn-right"></a>
+		</div>
+
+		<div data-role="main" class="ui-content">
+			<div class="center-text loading-spinner"><img src="img/load.gif"></div>
+			<div id="details-content">
+				<div class="modal-container hidden-animated">
+					<div class="modal">
+						<h3 class="center-text">Sind Sie sicher, dass Sie Ihren Beitrag löschen Foto/Hinweis?</h1>
+						<button class="yes">Ja</button>
+						<button class="close">Nein</button>
+					</div>
+				</div>
+				<div id="post-details"></div>	
+				<hr/>
+				<div id="post-map"></div>
+				<hr/>
+				<div id="post-contacts"></div>
+				<button id="remove-post" data-icon="remove">Foto/Hinweis löschen</button>
+			</div>
+		</div>
+
+		<div data-role="footer" class="default-footer">
+			<h1 id="about-btn"><a data-role="none" href="#about">Kampagne</a></h1>
+			<div id="home-btn-container">
+				<a href="#home-page"><div id="home-btn" class="active1"></div></a>
+			</div>
+			<h1 id="contacts-btn"><a data-role="none" href="#contacts">Kontakt</a></h1>
+		</div>
+	</div>
+
+	<script
+	src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBUPScSO3pgxtTXiu4zWtRfGFh_5I7kc0M&callback=initMap&libraries=&v=weekly"
+	async
+	></script>
+    <script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript" src="js/script.js"></script>
+	<script type="text/javascript" src="js/moment.min.js"></script>
+</body>
+
+</html>
